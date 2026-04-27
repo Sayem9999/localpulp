@@ -6,20 +6,27 @@ const a=(d=0)=>({initial:{opacity:0,y:14},animate:{opacity:1,y:0},transition:{de
 
 export function OrgchartSlide({s}) {
   return (
-    <div style={{display:'flex',flexDirection:'column',alignItems:'center',width:'100%',height:'100%',justifyContent:'center'}}>
-      <motion.div {...a(0.1)} style={{background:'rgba(0,242,254,0.06)',border:'1px solid rgba(0,242,254,0.25)',borderRadius:14,padding:'1rem 2rem',textAlign:'center',marginBottom:'1.5rem',boxShadow:'0 0 30px rgba(0,242,254,0.08)'}}>
-        <p style={{fontSize:10,textTransform:'uppercase',color:'#67e8f9',fontWeight:700}}>{s.org.ceo.desc}</p>
-        <p style={{fontSize:'1.1rem',fontWeight:900,marginTop:2}}>{s.org.ceo.title}</p>
-        <p style={{fontSize:11,color:'#9ca3af',marginTop:2}}>{s.org.ceo.name}</p>
+    <div style={{display:'grid',gridTemplateColumns:'2fr 3fr',gap:'1rem',width:'100%',height:'100%'}}>
+      <motion.div {...a(0.1)} style={{borderRadius:16,overflow:'hidden',border:'1px solid rgba(255,255,255,0.08)',position:'relative'}}>
+        <img src="/localpulp/organogram.png" alt="" style={{width:'100%',height:'100%',objectFit:'cover',opacity:0.6}}/>
+        <div style={{position:'absolute',inset:0,background:'linear-gradient(180deg,transparent 40%,rgba(0,0,0,0.85))'}}/>
+        <div style={{position:'absolute',bottom:'1.2rem',left:'1.2rem'}}><p style={{fontSize:14,fontWeight:800}}>Corporate Hierarchy</p><p style={{fontSize:10,color:'#22d3ee',textTransform:'uppercase'}}>4-Division Pilot Structure</p></div>
       </motion.div>
-      <motion.div {...a(0.2)} style={{width:1,height:30,background:'linear-gradient(180deg,rgba(0,242,254,0.3),rgba(255,255,255,0.1))'}}/>
-      <motion.div {...a(0.25)} style={{width:'70%',height:1,background:'linear-gradient(90deg,transparent,rgba(255,255,255,0.15),transparent)',marginBottom:4}}/>
-      <div style={{display:'grid',gridTemplateColumns:'repeat(4,1fr)',gap:'1rem',width:'85%'}}>
-        {s.org.divisions.map((d,i)=><motion.div key={i} initial={{opacity:0,y:20}} animate={{opacity:1,y:0}} transition={{delay:0.4+i*0.1,type:'spring'}} whileHover={{y:-5,borderColor:`${d.color}60`}} style={{background:'rgba(255,255,255,0.03)',border:`1px solid ${d.color}25`,borderTop:`3px solid ${d.color}`,borderRadius:14,padding:'1rem',textAlign:'center'}}>
-          <p style={{fontSize:13,fontWeight:800,marginBottom:2}}>{d.title}</p>
-          <p style={{fontSize:10,color:d.color,marginBottom:8}}>{d.head}</p>
-          {d.items.map((it,j)=><p key={j} style={{fontSize:10,color:'#6b7280',lineHeight:1.6}}>• {it}</p>)}
-        </motion.div>)}
+      <div style={{display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center'}}>
+        <motion.div {...a(0.15)} style={{background:'rgba(0,242,254,0.06)',border:'1px solid rgba(0,242,254,0.25)',borderRadius:12,padding:'0.8rem 1.5rem',textAlign:'center',marginBottom:'1rem',boxShadow:'0 0 25px rgba(0,242,254,0.08)'}}>
+          <p style={{fontSize:9,textTransform:'uppercase',color:'#67e8f9',fontWeight:700}}>{s.org.ceo.desc}</p>
+          <p style={{fontSize:14,fontWeight:900,marginTop:2}}>{s.org.ceo.title}</p>
+          <p style={{fontSize:10,color:'#9ca3af',marginTop:1}}>{s.org.ceo.name}</p>
+        </motion.div>
+        <motion.div {...a(0.2)} style={{width:1,height:20,background:'linear-gradient(180deg,rgba(0,242,254,0.3),rgba(255,255,255,0.08))'}}/>
+        <motion.div {...a(0.22)} style={{width:'90%',height:1,background:'linear-gradient(90deg,transparent,rgba(255,255,255,0.12),transparent)',marginBottom:3}}/>
+        <div style={{display:'grid',gridTemplateColumns:'repeat(2,1fr)',gap:'0.6rem',width:'100%'}}>
+          {s.org.divisions.map((d,i)=><motion.div key={i} initial={{opacity:0,y:15}} animate={{opacity:1,y:0}} transition={{delay:0.35+i*0.08,type:'spring'}} whileHover={{y:-4,borderColor:`${d.color}50`}} style={{background:'rgba(255,255,255,0.03)',border:`1px solid ${d.color}20`,borderTop:`3px solid ${d.color}`,borderRadius:12,padding:'0.7rem',textAlign:'center'}}>
+            <p style={{fontSize:12,fontWeight:800,marginBottom:1}}>{d.title}</p>
+            <p style={{fontSize:9,color:d.color,marginBottom:6}}>{d.head}</p>
+            {d.items.map((it,j)=><p key={j} style={{fontSize:9,color:'#6b7280',lineHeight:1.5}}>• {it}</p>)}
+          </motion.div>)}
+        </div>
       </div>
     </div>
   );
