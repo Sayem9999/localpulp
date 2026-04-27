@@ -1,0 +1,19 @@
+{
+  "project": "CelluPulp BD",
+  "version": "1.0.0",
+  "theme": {
+    "primary": "#0D9488",
+    "secondary": "#0891B2",
+    "accent": "#10B981",
+    "background": "#F8FAFC",
+    "font": "Inter, Arial, sans-serif"
+  },
+  "slides": [
+    { "id": "S1", "file": "pages/slide1.page", "type": "hero" },
+    { "id": "S2", "file": "pages/slide2.page", "type": "content" },
+    { "id": "S3", "file": "pages/slide3.page", "type": "split-image" },
+    { "id": "S4", "file": "pages/slide4.page", "type": "data-grid" },
+    { "id": "S5", "file": "pages/slide5.page", "type": "data-grid" },
+    { "id": "S6", "file": "pages/slide6.page", "type": "hero" }
+  ]
+}
