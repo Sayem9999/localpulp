@@ -8,7 +8,7 @@ export function OrgchartSlide({s}) {
   return (
     <div style={{display:'grid',gridTemplateColumns:'2fr 3fr',gap:'1rem',width:'100%',height:'100%'}}>
       <motion.div {...a(0.1)} style={{borderRadius:16,overflow:'hidden',border:'1px solid rgba(255,255,255,0.08)',position:'relative'}}>
-        <img src="/localpulp/organogram.png" alt="" style={{width:'100%',height:'100%',objectFit:'cover',opacity:0.6}}/>
+        <img src="./organogram.png" alt="" style={{width:'100%',height:'100%',objectFit:'cover',opacity:0.6}}/>
         <div style={{position:'absolute',inset:0,background:'linear-gradient(180deg,transparent 40%,rgba(0,0,0,0.85))'}}/>
         <div style={{position:'absolute',bottom:'1.2rem',left:'1.2rem'}}><p style={{fontSize:14,fontWeight:800}}>Corporate Hierarchy</p><p style={{fontSize:10,color:'#22d3ee',textTransform:'uppercase'}}>4-Division Pilot Structure</p></div>
       </motion.div>

@@ -7,7 +7,7 @@ export const slides = [
   },
   { id:2, type:'kpi', section:'01 — The Pitch',
     title:'The $80M Crisis', subtitle:'Why Bangladesh Bleeds Forex for Fluff Pulp',
-    image:'/localpulp/rawmaterial.png',
+    image:'./rawmaterial.png',
     problems:[
       {val:'$80M',label:'Annual USD Drain',desc:'Entire hygiene supply chain dependent on imports'},
       {val:'60-80K',label:'MT Imported/Year',desc:'Zero local production capacity exists'},
@@ -65,11 +65,11 @@ export const slides = [
       {title:'Promotion',desc:'Subsidized Tier 1 Trial Runs + ESG narrative',icon:'Megaphone'}
     ],
     trialStrategy:'We prove quality on the buyer\'s machines. Subsidized trials → 3-5yr off-take contracts.',
-    image:'/localpulp/product.png'
+    image:'./product.png'
   },
   { id:8, type:'pipeline', section:'03 — Marketing & Operations',
     title:'5-Step Operational Flow', subtitle:'From Feedstock to Dispatch — Zero-Liquid Discharge',
-    image:'/localpulp/pipeline.png',
+    image:'./pipeline.png',
     steps:[
       {icon:'Leaf',title:'Feedstock',desc:'Jute/bamboo aggregated from farmer cooperatives'},
       {icon:'Factory',title:'Digestion',desc:'Continuous bio-pulping at 16.5 MT/day'},
@@ -80,7 +80,7 @@ export const slides = [
   },
   { id:9, type:'factory', section:'03 — Marketing & Operations',
     title:'Production Facility', subtitle:'BEZA Industrial Zone — 24/7 Continuous Operation',
-    image:'/localpulp/factory.png',
+    image:'./factory.png',
     specs:[
       {label:'Daily Output',val:'16.5 MT'},
       {label:'Annual Capacity',val:'6,000 MT'},

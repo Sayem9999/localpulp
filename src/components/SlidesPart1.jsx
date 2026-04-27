@@ -11,7 +11,7 @@ export function HeroSlide({s}) {
       <motion.div animate={{rotate:360}} transition={{duration:30,repeat:Infinity,ease:'linear'}} style={{position:'absolute',width:500,height:500,borderRadius:'50%',border:'1px solid rgba(0,242,254,0.05)',pointerEvents:'none'}}/>
       <motion.div initial={{scale:0,rotate:-180}} animate={{scale:1,rotate:0}} transition={{type:'spring',stiffness:200,damping:15,delay:0.2}} style={{marginBottom:'1.5rem'}}>
         <motion.div animate={{boxShadow:['0 0 25px rgba(0,242,254,0.2)','0 0 50px rgba(0,242,254,0.4)','0 0 25px rgba(0,242,254,0.2)']}} transition={{duration:3,repeat:Infinity}} style={{width:90,height:90,borderRadius:22,overflow:'hidden',border:'2px solid rgba(0,242,254,0.3)'}}>
-          <img src="/localpulp/logo.png" alt="" style={{width:'100%',height:'100%',objectFit:'cover'}}/>
+          <img src="./logo.png" alt="" style={{width:'100%',height:'100%',objectFit:'cover'}}/>
         </motion.div>
       </motion.div>
       <motion.div initial={{opacity:0,scale:0.5}} animate={{opacity:1,scale:1}} transition={{delay:0.4,type:'spring'}} style={{padding:'0.35rem 1.2rem',borderRadius:99,background:'linear-gradient(135deg,rgba(0,242,254,0.12),rgba(16,185,129,0.08))',border:'1px solid rgba(0,242,254,0.3)',color:'#67e8f9',fontSize:10,fontWeight:700,letterSpacing:'0.2em',textTransform:'uppercase',marginBottom:'1.2rem'}}>{s.badge}</motion.div>
