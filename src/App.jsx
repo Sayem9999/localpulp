@@ -51,8 +51,7 @@ function App() {
           initial="enter" animate="center" exit="exit"
           transition={{ x: { type: 'spring', stiffness: 220, damping: 26 }, opacity: { duration: 0.2 }, scale: { duration: 0.35 } }}
           style={{
-            position: 'absolute', top: '50%', left: '50%',
-            transform: 'translate(-50%, -50%)',
+            position: 'absolute', top: 0, bottom: 0, left: 0, right: 0, margin: 'auto',
             width: '92%', maxWidth: 1280,
             height: '88vh',
             background: 'rgba(12, 18, 22, 0.72)',
