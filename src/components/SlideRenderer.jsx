@@ -32,7 +32,7 @@ function HeroSlide({s}) {
         <p style={{fontSize:'1.2rem',color:'#22d3ee',fontWeight:600,letterSpacing:'0.15em',textTransform:'uppercase',marginTop:'0.75rem'}}>{s.tagline}</p>
         <div style={{marginTop:'2.5rem',display:'grid',gridTemplateColumns:'repeat(5,1fr)',gap:'0.75rem',width:'100%'}}>
           {s.team?.map((m,i)=>(<motion.div key={i} {...anim(0.8+i*0.1)} style={{background:'rgba(255,255,255,0.04)',padding:'0.75rem',borderRadius:10,border:'1px solid rgba(255,255,255,0.06)'}}>
-            <p style={{fontSize:9,textTransform:'uppercase',color:'#6b7280',marginBottom:4}}>Speaker {i+1}</p>
+            <p style={{fontSize:9,textTransform:'uppercase',color:'#6b7280',marginBottom:4}}>Team</p>
             <p style={{fontSize:11,fontWeight:700,color:'#e5e7eb'}}>{m.n}</p>
             <p style={{fontSize:9,color:'rgba(6,182,212,0.5)',textTransform:'uppercase',marginTop:4}}>{m.r}</p>
           </motion.div>))}
