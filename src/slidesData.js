@@ -4,14 +4,7 @@ export const slides = [
     title: 'CelluPulp BD',
     tagline: 'Strategic Import Substitution for Bangladesh\'s Hygiene Sector',
     badge: '6,000 TPY Pilot Facility',
-    location: 'BEZA Zone, Dhaka Division',
-    team: [
-      { n: 'Md Sayem Sarkar', r: 'Founder & MD' },
-      { n: 'Operations Lead', r: 'Chemical Engineering' },
-      { n: 'Head of B2B Sales', r: 'Revenue Pillar' },
-      { n: 'Supply Chain Dir.', r: 'Logistics' },
-      { n: 'QC Lab Director', r: 'Technical Validation' }
-    ]
+    location: 'BEZA Zone, Dhaka Division'
   },
   {
     id: 2, type: 'split',

@@ -14,32 +14,80 @@ export default function SlideRenderer({ slide: s }) {
 }
 
 function HeroSlide({s}) {
+  const stats = [
+    { val: '$80M', label: 'Import Market', color: '#00f2fe' },
+    { val: '6,000', label: 'TPY Capacity', color: '#10B981' },
+    { val: '15%', label: 'CAGR Growth', color: '#4facfe' },
+    { val: '0%', label: 'Forex Risk', color: '#4ade80' }
+  ];
+
   if (s.id === 12) return (
     <div style={{display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',height:'100%',position:'relative',zIndex:10}}>
-      <motion.div animate={{scale:[1,1.05,1]}} transition={{duration:4,repeat:Infinity}}>
-        <h2 style={{fontSize:'4.5rem',fontWeight:900,letterSpacing:'-0.05em'}}>{s.title}</h2>
-        <div style={{height:6,width:160,background:'linear-gradient(90deg,#00f2fe,#10B981)',margin:'1rem auto',borderRadius:99}}/>
+      <motion.div initial={{scale:0.8,opacity:0}} animate={{scale:1,opacity:1}} transition={{duration:1,ease:'easeOut'}}>
+        <motion.h2 animate={{backgroundPosition:['0% 50%','100% 50%','0% 50%']}} transition={{duration:6,repeat:Infinity}} style={{fontSize:'5rem',fontWeight:900,letterSpacing:'-0.05em',background:'linear-gradient(270deg,#00f2fe,#10B981,#4facfe,#00f2fe)',backgroundSize:'300% 300%',WebkitBackgroundClip:'text',WebkitTextFillColor:'transparent'}}>{s.title}</motion.h2>
+        <motion.div animate={{width:[0,200]}} transition={{delay:0.5,duration:1}} style={{height:4,background:'linear-gradient(90deg,#00f2fe,#10B981)',margin:'1.5rem auto 0',borderRadius:99}}/>
       </motion.div>
-      <p style={{fontSize:'1.25rem',color:'#9ca3af',marginTop:'2rem',textTransform:'uppercase',letterSpacing:'0.15em'}}>{s.tagline}</p>
+      <motion.p initial={{opacity:0,y:20}} animate={{opacity:1,y:0}} transition={{delay:1,duration:0.8}} style={{fontSize:'1.1rem',color:'#6b7280',marginTop:'2rem',textTransform:'uppercase',letterSpacing:'0.2em',fontWeight:300}}>{s.tagline}</motion.p>
     </div>
   );
+
   return (
-    <div style={{display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',height:'100%',paddingTop:'2rem',position:'relative',zIndex:10}}>
-      <motion.div {...anim(0.3)} style={{textAlign:'center',background:'rgba(0,0,0,0.6)',padding:'3rem',borderRadius:'1.5rem',backdropFilter:'blur(20px)',border:'1px solid rgba(255,255,255,0.08)',display:'flex',flexDirection:'column',alignItems:'center',maxWidth:800}}>
-        <motion.img src="/localpulp/logo.png" alt="Logo" style={{width:80,height:80,borderRadius:16,marginBottom:'1.5rem',boxShadow:'0 0 30px rgba(0,242,254,0.3)',border:'1px solid rgba(255,255,255,0.1)'}} animate={{y:[0,-8,0]}} transition={{duration:4,repeat:Infinity}}/>
-        <div style={{display:'inline-block',padding:'0.35rem 1rem',borderRadius:99,background:'rgba(0,242,254,0.12)',border:'1px solid rgba(0,242,254,0.4)',color:'#67e8f9',fontSize:11,fontWeight:700,letterSpacing:'0.15em',textTransform:'uppercase',marginBottom:'1rem'}}>{s.badge}</div>
-        <h1 style={{fontSize:'4rem',fontWeight:900,background:'linear-gradient(135deg,#fff,#e5e7eb,#9ca3af)',WebkitBackgroundClip:'text',WebkitTextFillColor:'transparent',letterSpacing:'-0.05em'}}>{s.title}</h1>
-        <p style={{fontSize:'1.2rem',color:'#22d3ee',fontWeight:600,letterSpacing:'0.15em',textTransform:'uppercase',marginTop:'0.75rem'}}>{s.tagline}</p>
-        <div style={{marginTop:'2.5rem',display:'grid',gridTemplateColumns:'repeat(5,1fr)',gap:'0.75rem',width:'100%'}}>
-          {s.team?.map((m,i)=>(<motion.div key={i} {...anim(0.8+i*0.1)} style={{background:'rgba(255,255,255,0.04)',padding:'0.75rem',borderRadius:10,border:'1px solid rgba(255,255,255,0.06)'}}>
-            <p style={{fontSize:9,textTransform:'uppercase',color:'#6b7280',marginBottom:4}}>Team</p>
-            <p style={{fontSize:11,fontWeight:700,color:'#e5e7eb'}}>{m.n}</p>
-            <p style={{fontSize:9,color:'rgba(6,182,212,0.5)',textTransform:'uppercase',marginTop:4}}>{m.r}</p>
-          </motion.div>))}
-        </div>
-        <div style={{width:'100%',height:1,background:'linear-gradient(90deg,transparent,#374151,transparent)',margin:'1rem 0'}}/>
-        <p style={{fontSize:12,color:'#9ca3af',textTransform:'uppercase',letterSpacing:'0.1em'}}>{s.location}</p>
+    <div style={{display:'flex',flexDirection:'column',alignItems:'center',justifyContent:'center',height:'100%',position:'relative',zIndex:10,overflow:'hidden'}}>
+      {/* Floating accent rings */}
+      <motion.div animate={{rotate:360}} transition={{duration:30,repeat:Infinity,ease:'linear'}} style={{position:'absolute',width:500,height:500,borderRadius:'50%',border:'1px solid rgba(0,242,254,0.06)',pointerEvents:'none'}}/>
+      <motion.div animate={{rotate:-360}} transition={{duration:45,repeat:Infinity,ease:'linear'}} style={{position:'absolute',width:650,height:650,borderRadius:'50%',border:'1px solid rgba(16,185,129,0.04)',pointerEvents:'none'}}/>
+
+      {/* Logo */}
+      <motion.div initial={{scale:0,rotate:-180}} animate={{scale:1,rotate:0}} transition={{type:'spring',stiffness:200,damping:15,delay:0.2}}
+        style={{position:'relative',marginBottom:'2rem'}}>
+        <motion.div animate={{boxShadow:['0 0 30px rgba(0,242,254,0.2)','0 0 60px rgba(0,242,254,0.4)','0 0 30px rgba(0,242,254,0.2)']}} transition={{duration:3,repeat:Infinity}}
+          style={{width:100,height:100,borderRadius:24,overflow:'hidden',border:'2px solid rgba(0,242,254,0.3)'}}>
+          <img src="/localpulp/logo.png" alt="CelluPulp" style={{width:'100%',height:'100%',objectFit:'cover'}}/>
+        </motion.div>
       </motion.div>
+
+      {/* Badge */}
+      <motion.div initial={{opacity:0,scale:0.5}} animate={{opacity:1,scale:1}} transition={{delay:0.5,type:'spring'}}
+        style={{padding:'0.4rem 1.5rem',borderRadius:99,background:'linear-gradient(135deg,rgba(0,242,254,0.15),rgba(16,185,129,0.1))',border:'1px solid rgba(0,242,254,0.35)',color:'#67e8f9',fontSize:11,fontWeight:700,letterSpacing:'0.2em',textTransform:'uppercase',marginBottom:'1.5rem'}}>
+        {s.badge}
+      </motion.div>
+
+      {/* Title with gradient animation */}
+      <motion.h1 initial={{opacity:0,y:30}} animate={{opacity:1,y:0}} transition={{delay:0.6,duration:0.8,ease:'easeOut'}}
+        style={{fontSize:'5rem',fontWeight:900,textAlign:'center',lineHeight:1,letterSpacing:'-0.04em'}}>
+        <motion.span animate={{backgroundPosition:['0% 50%','100% 50%','0% 50%']}} transition={{duration:5,repeat:Infinity}}
+          style={{background:'linear-gradient(270deg,#ffffff,#e5e7eb,#00f2fe,#ffffff)',backgroundSize:'300% 300%',WebkitBackgroundClip:'text',WebkitTextFillColor:'transparent'}}>
+          {s.title}
+        </motion.span>
+      </motion.h1>
+
+      {/* Tagline */}
+      <motion.p initial={{opacity:0}} animate={{opacity:1}} transition={{delay:1,duration:1}}
+        style={{fontSize:'1.15rem',color:'#22d3ee',fontWeight:500,letterSpacing:'0.18em',textTransform:'uppercase',marginTop:'1rem',textAlign:'center'}}>
+        {s.tagline}
+      </motion.p>
+
+      {/* Animated divider */}
+      <motion.div initial={{width:0}} animate={{width:300}} transition={{delay:1.2,duration:1,ease:'easeOut'}}
+        style={{height:1,background:'linear-gradient(90deg,transparent,rgba(0,242,254,0.4),transparent)',marginTop:'2rem',marginBottom:'2rem'}}/>
+
+      {/* Floating stat pills */}
+      <div style={{display:'flex',gap:'1rem',flexWrap:'wrap',justifyContent:'center'}}>
+        {stats.map((st,i) => (
+          <motion.div key={i} initial={{opacity:0,y:25}} animate={{opacity:1,y:0}} transition={{delay:1.4+i*0.15,type:'spring',stiffness:150}}
+            whileHover={{scale:1.08,y:-4,boxShadow:`0 8px 25px ${st.color}25`}}
+            style={{display:'flex',alignItems:'center',gap:'0.6rem',padding:'0.6rem 1.2rem',borderRadius:99,background:'rgba(255,255,255,0.03)',border:`1px solid ${st.color}30`,cursor:'default',backdropFilter:'blur(8px)'}}>
+            <span style={{fontSize:'1.1rem',fontWeight:900,color:st.color}}>{st.val}</span>
+            <span style={{fontSize:10,color:'#9ca3af',textTransform:'uppercase',letterSpacing:'0.08em',fontWeight:500}}>{st.label}</span>
+          </motion.div>
+        ))}
+      </div>
+
+      {/* Location */}
+      <motion.p initial={{opacity:0}} animate={{opacity:1}} transition={{delay:2.2}}
+        style={{fontSize:11,color:'#4b5563',textTransform:'uppercase',letterSpacing:'0.15em',marginTop:'2rem'}}>
+        {s.location}
+      </motion.p>
     </div>
   );
 }
